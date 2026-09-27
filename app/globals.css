@@ -342,6 +342,88 @@ img {
   padding: 40px 0 64px;
 }
 
+/* ---------- 文章两栏布局 + 右侧目录 ---------- */
+.post-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 56px;
+  align-items: start;
+}
+.post-main {
+  min-width: 0; /* 防止长代码块撑破栅格导致溢出 */
+}
+/* 目录容器：粘性固定在视口，长文跟随阅读滚动 */
+.post-toc {
+  position: sticky;
+  top: 88px; /* 避开顶部 sticky header(64px) + 间距 */
+  align-self: start;
+  max-height: calc(100vh - 112px);
+  overflow-y: auto;
+}
+/* 点击目录跳转时，标题避开顶部 sticky header 的遮挡 */
+.prose :is(h1, h2, h3, h4) {
+  scroll-margin-top: 88px;
+}
+.toc {
+  font-size: 14px;
+}
+.toc-title {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc-item {
+  margin: 0;
+}
+.toc-link {
+  display: block;
+  padding: 5px 0 5px 12px;
+  color: var(--muted);
+  line-height: 1.45;
+  border-left: 2px solid transparent;
+  text-decoration: none; /* 纯展示：目录标题永远无下划线 */
+  cursor: default; /* 不可点击：鼠标不显示为手型 */
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.toc-link:hover {
+  color: var(--fg);
+}
+.toc-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  font-weight: 600;
+}
+/* 按标题层级缩进 */
+.toc-level-1 .toc-link {
+  padding-left: 12px;
+}
+.toc-level-2 .toc-link {
+  padding-left: 26px;
+}
+.toc-level-3 .toc-link {
+  padding-left: 40px;
+  font-size: 13px;
+}
+
+/* 中屏及以下：取消两栏、目录隐藏，正文独占一行 */
+@media (max-width: 1024px) {
+  .post-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .post-toc {
+    display: none;
+  }
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   border-top: 1px solid var(--border);

@@ -28,3 +28,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 项目本地目录（不进博客仓库，避免误提交）
+/.workbuddy/
+/article/
+/md_flutter/
+/doc/
