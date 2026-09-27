@@ -1,0 +1,65 @@
+# 部署到 GitHub Pages
+#
+# 触发：推送到 main 分支，或手动在 Actions 页运行。
+# 产物：next build 导出的纯静态文件（out/），由 GitHub Pages 托管。
+#
+# 关于 BASE_PATH（重要）：
+#   · 部署到「用户页」(https://<user>.github.io) 或自定义域名：保持 BASE_PATH 为空。
+#   · 部署到「项目页」(https://<user>.github.io/<repo>)：在仓库
+#     Settings → Secrets and variables → Actions → Variables 中新建
+#     变量 BASE_PATH，值为 /<你的仓库名>（含前导斜杠）。
+#   默认值留空，按需覆盖即可。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同时只跑一个部署，取消进行中的旧任务
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  BASE_PATH: ${{ vars.BASE_PATH || '' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: BASE_PATH="$BASE_PATH" npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
