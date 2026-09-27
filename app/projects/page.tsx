@@ -2,33 +2,33 @@ import { siteConfig } from '@/lib/site.config';
 
 export const metadata = {
   title: 'Projects',
-  description: 'Selected engineering projects — Flutter apps and Go services.',
+  description: 'Selected engineering projects — mobile apps, backend services, and data systems.',
 };
 
 const projects = [
   {
-    name: 'Cross-Platform Mobile App',
-    tech: 'Flutter · Dart · Riverpod',
-    desc: 'A production mobile app (iOS & Android) with offline-first sync, clean architecture, and a snappy 120fps UI. Shipped to both stores with a 4.8★ rating.',
-    href: 'https://github.com/your-username',
+    name: 'Personal Blog & Portfolio',
+    tech: 'Next.js · React · TypeScript · Go (Gin)',
+    desc: 'A statically-exported personal blog and portfolio built with Next.js, featuring Markdown articles, a right-side table of contents, and a Go (Gin) + SQLite backend with JWT auth. Deployed to GitHub Pages via CI.',
+    href: 'https://github.com/abertzhang/abertzhang.github.io',
   },
   {
-    name: 'High-Throughput API Service',
-    tech: 'Go · gRPC · PostgreSQL',
-    desc: 'A backend service handling millions of daily requests with sub-10ms p99 latency, structured logging, and zero-downtime deployments.',
-    href: 'https://github.com/your-username',
+    name: 'Knot Tying Recognition App',
+    tech: 'Flutter · Dart · TensorFlow Lite · Isar · Supabase',
+    desc: 'A cross-platform Flutter app that recognizes knot types from camera input through a two-stage on-device TFLite pipeline (YOLOX localizer + MobileNetV3 classifier), with local Isar persistence and Supabase auth.',
+    href: 'https://github.com/abertzhang',
   },
   {
-    name: 'Realtime Dashboard',
-    tech: 'Flutter Web · Go WebSocket',
-    desc: 'A live operations dashboard streaming metrics over WebSocket with backpressure handling and a responsive, themeable UI.',
-    href: 'https://github.com/your-username',
+    name: 'QuantChip Stock Selection System',
+    tech: 'Python · pandas · Node.js · React',
+    desc: 'A quantitative stock-selection system combining multi-factor strategies, regime-switching, and backtesting, served by a Node backend with a React dashboard.',
+    href: 'https://github.com/abertzhang',
   },
   {
-    name: 'Developer CLI',
-    tech: 'Go · Cobra',
-    desc: 'An internal CLI that cut onboarding time in half by automating environment setup, code generation, and CI checks.',
-    href: 'https://github.com/your-username',
+    name: 'Knot-Coach Animation Pipeline',
+    tech: 'Blender · Python · Geometry Nodes',
+    desc: 'A Blender pipeline that generates knot-tying teaching animations from real Knotus paths, rendering growth animation via Geometry Nodes and exporting MP4 + GLB.',
+    href: 'https://github.com/abertzhang',
   },
 ];
 
