@@ -8,10 +8,15 @@
  *     · 项目页部署：构建时执行 `BASE_PATH=/你的仓库名 next build`。
  */
 const basePath = process.env.BASE_PATH || '';
+// 构建中间目录（.next）。默认放在项目内；若该目录写入被环境限制，
+// 可用 NEXT_DIST_DIR 指向 /tmp 等可写路径，例如：
+//   NEXT_DIST_DIR=/tmp/blog-next npm run build
+const distDir = process.env.NEXT_DIST_DIR || '.next';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  distDir,
   images: {
     unoptimized: true,
   },

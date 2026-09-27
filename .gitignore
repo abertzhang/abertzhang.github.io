@@ -22,6 +22,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# 含明文凭证的项目信息（GitHub token 等，严禁提交）
+/doc/blog_info.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
