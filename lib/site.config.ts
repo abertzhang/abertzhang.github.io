@@ -37,8 +37,8 @@ export const siteConfig = {
   /** 站点描述（SEO / 分享卡片） */
   description:
     'Engineering blog and portfolio of Abert Zhang — Flutter, Golang, and general software craft, written for fellow engineers and hiring teams.',
-  /** 站点根 URL（用于 SEO / canonical，部署后填真实地址，如 https://user.github.io/repo） */
-  siteUrl: 'https://example.github.io',
+  /** 站点根 URL（用于 SEO / canonical） */
+  siteUrl: 'https://abertzhang.github.io',
   /** 文章存放目录（相对项目根） */
   contentDir: 'content',
   /** 顶部导航 */
@@ -52,7 +52,7 @@ export const siteConfig = {
   ] as NavItem[],
   /** 联系方式 / 社交链接（页脚 + 联系页） */
   social: [
-    { label: 'GitHub', href: 'https://github.com/your-username' },
+    { label: 'GitHub', href: 'https://github.com/abertzhang' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-handle' },
     { label: 'Email', href: 'mailto:abertzhangchunhua@gmail.com' },
   ] as SocialLink[],
