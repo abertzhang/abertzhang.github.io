@@ -101,7 +101,8 @@ function parsePost(filename: string): Post {
   return {
     slug: slugFromFilename(filename),
     title: data.title || slugFromFilename(filename),
-    date: normalizeDate(data.date),
+    // 日期优先取 create（新格式），回退兼容旧字段 date / update
+    date: normalizeDate(data.create ?? data.date ?? data.update),
     // 分类大小写不敏感：统一转小写以匹配 site.config.ts 的 slug（如 Flutter → flutter）
     category: String(data.category || 'other').toLowerCase(),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],

@@ -1,6 +1,7 @@
 ---
 title:StatefulBuilder
-date:2026-09-27
+dcreate:2026-09-27
+update:2026-09-27
 category:Flutter
 tags:[state,builder]
 summary:A small-scope rebuild widget in Flutter — refresh local state without a full StatefulWidget

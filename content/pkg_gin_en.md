@@ -1,9 +1,10 @@
 ---
 title:Gin
-date:2026-09-27
+create:2026-09-27
+update:2026-09-27
 category:Golang
 tags:[http,gin]
-summary:Gin web framework core reference — routing, Context, binding and response rendering
+summary:
 top:1
 copyright:true
 ---
