@@ -71,6 +71,12 @@ export const siteConfig = {
       color: '#00ADD8',
     },
     {
+      slug: 'nodejs',
+      name: 'nodejs',
+      description: 'Backend services, APIs, and tooling built with Node.js and TypeScript.',
+      color: '#539E43',
+    },
+    {
       slug: 'other',
       name: 'Other',
       description: 'General software engineering, career, and tooling notes.',

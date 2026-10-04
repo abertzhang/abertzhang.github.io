@@ -7,7 +7,7 @@
  * 支持的 frontmatter 字段（完整示例见 doc/article-template.md）：
  *   title     文章标题
  *   date      发布日期 YYYY-MM-DD
- *   category  分类 slug（Flutter / Golang / Other，大小写不敏感，内部统一转小写）
+ *   category  分类 slug（Flutter / Golang / nodejs / Other，大小写不敏感，内部统一转小写）
  *   tags      标签列表
  *   summary   一句话摘要（兼容旧字段 excerpt）
  *   top       置顶权重，数字越大越靠前（默认 0）
