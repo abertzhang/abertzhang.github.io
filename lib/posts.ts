@@ -75,9 +75,15 @@ function normalizeDate(d: unknown): string {
 function normalizeFrontmatter(raw: string): string {
   const fence = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fence) return raw;
-  const fm = fence[1].replace(
+  let fm = fence[1].replace(
     /^(\s*[A-Za-z_\u4e00-\u9fff][\w\u4e00-\u9fff-]*):(\S)/gm,
     '$1: $2',
+  );
+  // 兜底：值里若含「冒号+空格」（如 title:Node.js: xxx、summary: ... slices: declaration），
+  // 且尚未加引号，则整体加双引号，避免 js-yaml 误判成新字段导致构建失败。
+  fm = fm.replace(
+    /^(\s*[\w\u4e00-\u9fff-]+):\s*([^\n"]*: .*)$/gm,
+    '$1: "$2"',
   );
   return raw.replace(fence[1], fm);
 }
