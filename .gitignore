@@ -29,6 +29,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# IDE 配置（本地各自一份，不进仓库）
+# JetBrains 系（GoLand / IntelliJ / WebStorm / PyCharm）
+/.idea/
+*.iml
+# VS Code
+/.vscode/
+
 # 项目本地目录（不进博客仓库，避免误提交）
 /.workbuddy/
 /article/
